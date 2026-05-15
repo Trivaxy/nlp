@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nlp"
+version = "0.2.0"
+description = "No Llama Cpp - CLI gateway for llama.cpp"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.12.0",
+    "platformdirs>=4.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+nlp = "nlp.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["nlp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
