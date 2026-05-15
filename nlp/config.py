@@ -45,7 +45,7 @@ def _dump_config(config: dict) -> str:
             lines.append("")
         lines.append("[models]")
         for key, value in sorted(models.items()):
-            lines.append(f'{key} = {_escape_str(value)}')
+            lines.append(f'"{key}" = {_escape_str(value)}')
         lines.append("")
 
     profiles = config.get("profiles", {})
