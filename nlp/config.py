@@ -50,7 +50,7 @@ def _dump_config(config: dict) -> str:
 
     profiles = config.get("profiles", {})
     for profile_id, profile in sorted(profiles.items()):
-        lines.append(f'[profiles.{profile_id}]')
+        lines.append(f'[profiles.{_escape_str(profile_id)}]')
         model = profile.get("model")
         if model is not None:
             lines.append(f'model = {_escape_str(model)}')
